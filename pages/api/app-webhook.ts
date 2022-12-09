@@ -1,11 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import camelcase from 'camelcase'
-import { Config } from 'lib/config'
+import lcConfig from '../../livechat.config.json'
+import { DeveloperAppConfig } from '@lcwd/developer-sdk'
 
 async function AppWebook(req: NextApiRequest, res: NextApiResponse) {
   try {
     const { clientID, licenseID, event, payload } = req.body
-    if (clientID !== Config.lcClientId) {
+    if (clientID !== (lcConfig as DeveloperAppConfig).auth?.clientId) {
       throw new Error('Unauthorized')
     }
     const handlerName = camelcase(event) as keyof typeof WebhooksHandlers
