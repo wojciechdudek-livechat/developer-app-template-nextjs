@@ -1,0 +1,34 @@
+{
+  "appId": "",
+  "name": "Template App",
+  "install": true,
+  "baseURL": "https://example.com",
+  "auth": {
+    "clientId": "",
+    "clientType": "javascript_app",
+    "scopes": ["agents--all:ro"],
+    "redirectURI": ["%baseURL%"]
+  },
+  "widget": [
+    {
+      "url": "%baseURL%/chat-details",
+      "placement": "plugin"
+    },
+    {
+      "url": "%baseURL%/fullscreen",
+      "placement": "fullscreen"
+    },
+    {
+      "url": "%baseURL%/message-box",
+      "placement": "messagebox"
+    }
+  ],
+  "appWebhooks": {
+    "url": "%baseURL%/api/app-webhook"
+  },
+  "chatActions": {
+    "url": "%baseURL%/api/chat-action",
+    "label": "Template app action",
+    "action": "sendWebhook"
+  }
+}
