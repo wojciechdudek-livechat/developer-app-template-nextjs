@@ -1,7 +1,7 @@
 import { Card } from '@livechat/design-system'
 import FullScreenLoader from 'components/FullScreenLoader'
 import ViewContainer from 'components/ViewContainer'
-import useDetailsWidget from 'hooks/useDetailsWidget'
+import useDetailsWidget from 'hooks/widgets/useDetailsWidget'
 
 function ChatDetails() {
   const { widget, customerProfile } = useDetailsWidget()

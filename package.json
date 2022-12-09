@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@livechat/accounts-sdk": "^2.0.5",
+    "@lcwd/developer-sdk": "^0.0.1-alpha.11",
     "@livechat/agent-app-sdk": "^1.5.2",
     "@livechat/design-system": "^0.13.1",
     "camelcase": "^6.3.0",

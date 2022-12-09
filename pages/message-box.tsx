@@ -2,7 +2,7 @@ import { IRichMessage } from '@livechat/agent-app-sdk'
 import { Button } from '@livechat/design-system'
 import FullScreenLoader from 'components/FullScreenLoader'
 import ViewContainer from 'components/ViewContainer'
-import useMessageBoxWidget from 'hooks/useMessageBoxWidget'
+import useMessageBoxWidget from 'hooks/widgets/useMessageBoxWidget'
 
 const RICH_MESSAGE: IRichMessage = {
   template_id: 'cards',

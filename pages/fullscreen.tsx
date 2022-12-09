@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Card, NumericInputField } from '@livechat/design-system'
 import FullScreenLoader from 'components/FullScreenLoader'
-import useFullscreenWidget from 'hooks/useFullscreenWidget'
-import useUserIdentity from 'hooks/useUserIdentity'
-import { Config } from 'lib/config'
+import useFullscreenWidget from 'hooks/widgets/useFullscreenWidget'
 import ViewContainer from 'components/ViewContainer'
+import useDeveloperApp from 'hooks/app/useDeveloperApp'
 
 type Agent = {
   id: string
@@ -14,7 +13,7 @@ type Agent = {
 }
 
 function Fullscreen() {
-  const userIdentity = useUserIdentity()
+  const developerApp = useDeveloperApp()
   const fullscreenWidget = useFullscreenWidget()
   const [agents, setAgents] = useState<Agent[] | null>(null)
   const [notificationsCount, setNotificationsCount] = useState(0)
@@ -26,21 +25,21 @@ function Fullscreen() {
   }, [fullscreenWidget, notificationsCount])
 
   useEffect(() => {
-    if (userIdentity) {
-      fetch(`${Config.lcApiURL}/configuration/action/list_agents`, {
+    if (developerApp) {
+      fetch(`${developerApp.urls.liveChatApi}/configuration/action/list_agents`, {
         method: 'POST',
         body: '{}',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `${userIdentity.token_type} ${userIdentity.access_token}`,
+          Authorization: `${developerApp.data.authorization.token_type} ${developerApp.data.authorization.access_token}`,
         },
       })
         .then((response) => response.json())
         .then(setAgents)
     }
-  }, [userIdentity])
+  }, [developerApp])
 
-  if (fullscreenWidget === null || userIdentity === null || agents === null) {
+  if (fullscreenWidget === null || developerApp === null || agents === null) {
     return <FullScreenLoader />
   }
 

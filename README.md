@@ -1,6 +1,4 @@
-# <img src="https://livechat.design/images/livechat/DIGITAL%20%28RGB%29/SVG/Mark_RGB_Orange.svg" widht="24px" height="24px" /> LiveChat Next.js App
-
-> This project was bootstrapped using [LiveChat Developer Console CLI](https://github.com/livechat/dps-cli)
+# <img src="https://livechat.design/images/livechat/DIGITAL%20%28RGB%29/SVG/Mark_RGB_Orange.svg" widht="24px" height="24px" /> LiveChat Developer App - Next.js Template
 
 ## 🚀 Getting Started
 
@@ -13,13 +11,13 @@ npm install
 login to the LiveChat Developer Console CLI using your LiveChat account
 
 ```sh
-dps login
+lcdev login
 ```
 
 bootstrap new LiveChat app using dedicated CLI
 
 ```ts
-dps bootstrap --baseURL <your-local-url>
+lcdev bootstrap --baseURL <your-local-url>
 ```
 
 start local development server
